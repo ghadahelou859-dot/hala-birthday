@@ -224,13 +224,13 @@ button,a{font:inherit;border:0;cursor:pointer;text-decoration:none}
       <div class="rate-result" id="rateResult">اختاري التقييم اللي بتحبيه ✨</div>
       <div class="social-title">تابعيني على مواقع التواصل</div>
       <div class="socials">
-        <a class="social ig" href="https://www.instagram.com/ghada.invitations?igsi=dndkd3lhMmJ0M2E5&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+        <a class="social ig" data-analytics="social_click" data-platform="instagram" data-button="final-instagram" href="https://www.instagram.com/ghada.invitations?igsi=dndkd3lhMmJ0M2E5&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.9 1.55a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 6.6A5.4 5.4 0 1 1 6.6 12 5.41 5.41 0 0 1 12 6.6Zm0 1.8A3.6 3.6 0 1 0 15.6 12 3.6 3.6 0 0 0 12 8.4Z"/></svg>
         </a>
-        <a class="social tk" href="https://www.tiktok.com/@ghada.invitations?_r=1&_t=ZS-99Ru8uGvd10" target="_blank" rel="noopener" aria-label="TikTok">
+        <a class="social tk" data-analytics="social_click" data-platform="tiktok" data-button="final-tiktok" href="https://www.tiktok.com/@ghada.invitations?_r=1&_t=ZS-99Ru8uGvd10" target="_blank" rel="noopener" aria-label="TikTok">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2h2.2c.2 1.8 1.4 3.3 3.1 4 .6.3 1.3.4 2 .5v2.2c-1 0-2-.2-2.9-.6-.8-.3-1.6-.8-2.2-1.4v7.1a6.03 6.03 0 1 1-6-6c.4 0 .8 0 1.2.1v2.2c-.4-.1-.8-.2-1.2-.2a3.8 3.8 0 1 0 3.8 3.8V2Z"/></svg>
         </a>
-        <a class="social sc" href="https://snapchat.com/t/n8AEKXRm" target="_blank" rel="noopener" aria-label="Snapchat">
+        <a class="social sc" data-analytics="social_click" data-platform="snapchat" data-button="final-snapchat" href="https://snapchat.com/t/n8AEKXRm" target="_blank" rel="noopener" aria-label="Snapchat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c2.3 0 4.2 1.8 4.2 4.1v1.3c0 .3.1.6.2.9.3.8 1 1.3 1.8 1.5.4.1.7.4.7.8 0 .5-.4.8-.8.9-.4.1-.8.2-1.2.3-.3.1-.4.4-.3.7.2.7.8 1.3 1.5 1.6.3.1.4.4.4.7 0 .4-.3.8-.7.8-.8.1-1.5.4-2 .9-.3.3-.6.7-.8 1.1-.2.4-.6.6-1 .6-.6 0-1.1-.2-1.6-.5-.1-.1-.3-.1-.4 0-.5.3-1 .5-1.6.5-.4 0-.8-.2-1-.6-.2-.4-.5-.8-.8-1.1-.5-.5-1.2-.8-2-.9-.4 0-.7-.4-.7-.8 0-.3.2-.6.4-.7.7-.3 1.3-.9 1.5-1.6.1-.3 0-.6-.3-.7-.4-.1-.8-.2-1.2-.3-.4-.1-.8-.4-.8-.9 0-.4.3-.7.7-.8.8-.2 1.5-.7 1.8-1.5.1-.3.2-.6.2-.9V6.3C7.8 4 9.7 2.2 12 2.2Z"/></svg>
         </a>
       </div>
@@ -240,6 +240,8 @@ button,a{font:inherit;border:0;cursor:pointer;text-decoration:none}
   </section>
 </main>
 
+<script src="analytics.js?v=1"></script>
+<script>GhadaAnalytics.init({projectSlug:"مفاجاة-عيد-ميلاد-حلا",pageKey:"main"});</script>
 <script>
 const PASS='0306';
 let input='';
@@ -278,7 +280,7 @@ function pauseGalleryVideo(){const v=document.getElementById('galleryVideo');if(
 document.addEventListener('visibilitychange',()=>{if(document.hidden){stopMusic();pauseGalleryVideo()}});
 
 const starBtns=[...document.querySelectorAll('.star-btn')],rateResult=document.getElementById('rateResult');
-function setRating(n,silent=false){starBtns.forEach((s,i)=>s.classList.toggle('on',i<n));if(n===0){rateResult.textContent='اختاري التقييم اللي بتحبيه ✨';return;}const msgs={1:'شكراً على رأيك 🤍',2:'شكراً... ورأيك بهمّني ✨',3:'يسعدلي قلبك 🤍',4:'أحلى تقييم! ✨',5:'يا روحي! 5 نجوم فرّحتني جدًا 🤍'};rateResult.textContent=msgs[n]||'شكراً على رأيك 🤍';if(!silent)success();}
+function setRating(n,silent=false){starBtns.forEach((s,i)=>s.classList.toggle('on',i<n));if(n===0){rateResult.textContent='اختاري التقييم اللي بتحبيه ✨';return;}const msgs={1:'شكراً على رأيك 🤍',2:'شكراً... ورأيك بهمّني ✨',3:'يسعدلي قلبك 🤍',4:'أحلى تقييم! ✨',5:'يا روحي! 5 نجوم فرّحتني جدًا 🤍'};rateResult.textContent=msgs[n]||'شكراً على رأيك 🤍';if(!silent){success();if(window.GhadaAnalytics)GhadaAnalytics.track('rating',{pageKey:'final',metadata:{rating:n}});}}
 starBtns.forEach(btn=>btn.addEventListener('click',()=>{click();setRating(+btn.dataset.rate)}));
 
 const canvas=document.getElementById('scratchCanvas');
@@ -287,7 +289,7 @@ const scratchBtn=document.getElementById('toBday');
 const sctx=canvas.getContext('2d',{willReadFrequently:true});
 function sizeScratch(){const r=scratchWrap.getBoundingClientRect();const dpr=Math.max(1,window.devicePixelRatio||1);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';sctx.setTransform(dpr,0,0,dpr,0,0);paintScratch(r.width,r.height)}
 function paintScratch(w,h){sctx.globalCompositeOperation='source-over';const grad=sctx.createLinearGradient(0,0,w,h);grad.addColorStop(0,'#ead0d5');grad.addColorStop(.6,'#ddb9c5');grad.addColorStop(1,'#cda0af');sctx.fillStyle=grad;sctx.fillRect(0,0,w,h);for(let i=0;i<130;i++){sctx.fillStyle=`rgba(255,255,255,${Math.random()*0.18})`;sctx.fillRect(Math.random()*w,Math.random()*h,Math.random()*14+6,Math.random()*2+1)}sctx.fillStyle='rgba(255,255,255,.95)';sctx.font='900 26px system-ui, sans-serif';sctx.textAlign='center';sctx.textBaseline='middle';sctx.fillText('اقشطي هون',w/2,h/2-10);sctx.font='700 16px system-ui, sans-serif';sctx.fillText('لتعرفي مكان الهدية',w/2,h/2+22)}
-function scratchAt(x,y){sctx.globalCompositeOperation='destination-out';sctx.beginPath();sctx.arc(x,y,22,0,Math.PI*2);sctx.fill();if(!scratchReady){scratchReady=true;scratchBtn.disabled=false}}
+function scratchAt(x,y){sctx.globalCompositeOperation='destination-out';sctx.beginPath();sctx.arc(x,y,22,0,Math.PI*2);sctx.fill();if(!scratchReady){scratchReady=true;scratchBtn.disabled=false;if(window.GhadaAnalytics)GhadaAnalytics.track('scratch_start',{pageKey:'scratch'});}}
 function pointFromEvent(e){const r=canvas.getBoundingClientRect();const p=(e.touches&&e.touches[0])||e;return{x:p.clientX-r.left,y:p.clientY-r.top}}
 let drawing=false;
 ['pointerdown','mousedown','touchstart'].forEach(ev=>canvas.addEventListener(ev,e=>{drawing=true;const p=pointFromEvent(e);scratchAt(p.x,p.y);e.preventDefault()},{passive:false}));
